@@ -1,0 +1,7 @@
+b1: Đọc lại đề bài của bài assignment, xác định tất cả các đối tượng
+và tạo ra class với các thuộc tính/function tương ứng. 
+Mỗi class tương đương với 1 file trùng tên.
+VD: Product.php => class Product{}
+
+b2. Thiết kế csdl cho bài assignment;
+b3. chọn template (được phép sử dụng httrack tải về) để làm assignment
