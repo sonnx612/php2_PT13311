@@ -1,6 +1,6 @@
 <?php
 class LopCha{
-    var $ten;
+    public $ten;
     protected $tuoi;
     private $quequan;
 
