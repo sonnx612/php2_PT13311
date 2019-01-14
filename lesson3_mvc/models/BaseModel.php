@@ -14,6 +14,13 @@ class BaseModel
         return $model;
     }
 
+    public static function find($id){
+        $model = new static();
+        $model->queryBuilder = "select * from " . $model->table
+                                    . " where id = '$id'";
+        return $model->first();
+    }
+
     public static function all(){
         $model = new static();
         $model->queryBuilder = "select * from " . $model->table;
@@ -30,10 +37,11 @@ class BaseModel
         return $this;
     }
 
-    public function delete(){
-        $this->queryBuilder = "delete " . $this->table 
-                                . " where id = " . $this->id;
-        $stmt = $this->connect->prepare($this->queryBuilder);
+    public static function delete($id){
+        $model = new static();
+        $model->queryBuilder = "delete from " . $model->table 
+                                . " where id = " . $id;
+        $stmt = $model->connect->prepare($model->queryBuilder);
         $stmt->execute();
         return true;
     }
@@ -44,6 +52,12 @@ class BaseModel
         return $stmt->fetchAll();
     }
 
+    public function first(){
+        $stmt = $this->connect->prepare($this->queryBuilder);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
     public static function rawQuery($sqlQuery){
         $model = new static();
         $stmt = $model->connect->prepare($sqlQuery);
@@ -51,23 +65,5 @@ class BaseModel
         return $stmt->fetchAll();
     }
 }
-
-
-
-// // thuc thi sql va lay het du lieu tra ve
-// function getAll($sqlQuery){
-//     $connect = getConnect();
-//     $stmt = $connect->prepare($sqlQuery);
-//     $stmt->execute();
-//     return $stmt->fetchAll();
-// }
-
-// // thuc thi sql va lay du lieu dau tien tra ve
-// function getOne($sqlQuery){
-//     $connect = getConnect();
-//     $stmt = $connect->prepare($sqlQuery);
-//     $stmt->execute();
-//     return $stmt->fetch();
-// }
 
 ?>

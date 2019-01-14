@@ -1,0 +1,7 @@
+1. Xây dựng lớp BaseModel thực hiện các công việc như trên lớp, comment cẩn thận từng dòng để hiểu
+2. Tạo ra các class tương ứng với các table trong cơ sở dữ liệu
+3. Tạo ra các đường dẫn để thực hiện các câu lệnh thêm dữ liệu vào trong các bảng cơ bản (users, categories, products, comments) - mỗi bảng 5 bản ghi
+vd:
+http://localhost/php2_PT13311/insert-category
+=> insert data (data tự mình viết cứng trong hàm của controller) vào bảng categories
+- Làm tương tự cho các bảng khác
