@@ -53,9 +53,8 @@ class BaseModel
     }
 
     public function first(){
-        $stmt = $this->connect->prepare($this->queryBuilder);
-        $stmt->execute();
-        return $stmt->fetch();
+        $arr = $this->get();
+        return $arr[0];
     }
 
     public static function rawQuery($sqlQuery){
