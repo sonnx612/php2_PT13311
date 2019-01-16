@@ -15,7 +15,10 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <td>Image</td>
         <th>Category Name</th>
+        <th>
+        </th>
     </tr>
     <?php foreach ($product as $item): ?>
         <tr>
@@ -26,7 +29,13 @@
                 <?= $item->name?>
             </td>
             <td>
+                <img src="<?= $item->image?>" width="70">
+            </td>
+            <td>
                 <?= $item->getCate()->cate_name?>
+            </td>
+            <td>
+                <a href="<?= $baseUrl . "remove?id=" . $item->id?>">Remove</a>
             </td>
         </tr>
     <?php endforeach;?>
