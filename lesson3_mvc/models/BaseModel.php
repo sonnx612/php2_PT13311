@@ -49,7 +49,7 @@ class BaseModel
     public function get(){
         $stmt = $this->connect->prepare($this->queryBuilder);
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_CLASS, get_class($this));
     }
 
     public function first(){
