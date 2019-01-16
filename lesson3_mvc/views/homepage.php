@@ -7,6 +7,10 @@
     <title>Trang chủ</title>
 </head>
 <body>
+<form action="" method="get">
+    <input type="text" name="keyword" value="<?= $keyword ?>">
+    <button type="submit">Search</button>
+</form>
 <table>
     <tr>
         <th>ID</th>
