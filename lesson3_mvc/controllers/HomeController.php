@@ -3,6 +3,7 @@ require_once "./models/Product.php";
 require_once "./models/Category.php";
 class HomeController{
     public function index(){
+        global $baseUrl;
         $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : null;
 
         if($keyword != null){

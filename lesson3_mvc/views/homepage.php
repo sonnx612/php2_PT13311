@@ -18,6 +18,7 @@
         <td>Image</td>
         <th>Category Name</th>
         <th>
+            <a href="<?= $baseUrl . "add-product"?>">Thêm</a>
         </th>
     </tr>
     <?php foreach ($product as $item): ?>

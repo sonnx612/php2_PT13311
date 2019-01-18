@@ -16,6 +16,14 @@ switch($url){
         $ctr = new ProductController();
         echo $ctr->remove();
         break;
+    case "add-product":
+        $ctr = new ProductController();
+        echo $ctr->addForm();
+        break;
+    case "save-add-product":
+        $ctr = new ProductController();
+        echo $ctr->saveaAdd();
+        break;
     default:
         echo "404 not found!";
 }
