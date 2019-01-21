@@ -1,0 +1,18 @@
+Tạo 3 bảng (sử dụng lại cấu trúc của db kaopiz), users, categories, products
+1. Hiển thị danh sách/thêm mới/cập nhật/xóa danh mục (categories)
+2. Hiển thị danh sách/thêm mới/cập nhật/xóa sản phẩm (products)
+3. Hiển thị danh sách/thêm mới/cập nhật/xóa người dúng (users)
+=> hiển thị thì không cần đăng nhập
+=> thực hiện các tác vụ thêm/sửa/xóa thì cần phải đăng nhập 
+=> mật khẩu đc mã hóa bằng password_hash của php | so sánh mật khẩu bằng password_verify
+
+Hiển thị danh sách - 0.4
+    có ảnh - 0.7
+Thêm mới - 0.4
+    Thêm đc ảnh - 0.7
+Cập nhật - 0.4
+    Không up ảnh - vẫn giữ ảnh cũ - 0.6
+Xóa - 0.3
+    Có confirm - 0.5
+Đăng nhập 0.3
+    - có mã hóa mật khẩu 0.5
