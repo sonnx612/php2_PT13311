@@ -51,7 +51,7 @@
         </div>
         <div>
             <label for="">Detail</label>
-            <textarea name="detail" id="" cols="30" rows="10"<?= $model->detail ?>></textarea>
+            <textarea name="detail" id="" cols="30" rows="10"><?= $model->detail ?></textarea>
         </div>
         <div>
             <button type="submit">Save</button>

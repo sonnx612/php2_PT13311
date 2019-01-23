@@ -28,6 +28,10 @@ switch($url){
         $ctr = new ProductController();
         echo $ctr->saveaAdd();
         break;
+    case "save-edit-product":
+        $ctr = new ProductController();
+        echo $ctr->saveEdit();
+        break;
     default:
         echo "404 not found!";
 }
