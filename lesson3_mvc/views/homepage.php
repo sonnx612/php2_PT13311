@@ -36,11 +36,20 @@
                 <?= $item->getCate()->cate_name?>
             </td>
             <td>
-                <a href="<?= $baseUrl . "remove?id=" . $item->id?>">Remove</a>
+                <a href="<?= $baseUrl . "edit-product?id=" . $item->id?>">Edit</a>
+                <a onclick="removeProduct(this)" href="javascript:;" linkUrl="<?= $baseUrl . "remove?id=" . $item->id?>">Remove</a>
             </td>
         </tr>
     <?php endforeach;?>
 </table>
-    
+    <script>
+        function removeProduct(el){
+            var url = el.getAttribute('linkUrl');
+            var conf = confirm('Bạn chắc chắn muốn xóa sản phẩm này?');
+            if(conf == true){
+                window.location.href = url;
+            }
+        }
+    </script>
 </body>
 </html>

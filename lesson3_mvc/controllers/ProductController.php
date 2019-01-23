@@ -16,6 +16,28 @@ class ProductController
         include_once './views/products/addForm.php';
     }
 
+    public function editForm(){
+        global $baseUrl;
+        // Lấy id trên đường dẫn
+        $id = $_GET['id'];
+
+        // Lấy danh sách danh mục
+        $cates = Category::where('id', '<>', 0)->get();
+
+        // Lấy sản phẩm dựa vào id trên đường dẫn
+        $model = Product::where('id', '=', $id)->first();
+
+        // Nếu không lấy được thông tin sản phẩm
+        // thì điều hướng về trang chủ
+        if($model == null){
+            header('location: ./');
+            die;
+        }
+
+        // Hiển thị giao diện
+        include_once './views/products/editForm.php';
+    }
+
     public function saveaAdd(){
         $model = new Product();
         // biến chứa các tên cột trong câu sql
