@@ -1,8 +1,11 @@
 <?php
 require_once './models/Product.php';
 require_once './models/Category.php';
+require_once './helpers/AuthTrait.php';
 class ProductController
 {
+    use AuthTrait;
+    
     public function remove(){
         $id = $_GET['id'];
         Product::delete($id);

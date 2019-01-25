@@ -1,3 +1,8 @@
+<?php
+$user = isset($_SESSION['auth']) ? $_SESSION['auth'] : null;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +12,17 @@
     <title>Trang chủ</title>
 </head>
 <body>
+<?php if($user != null):?>
+<div>
+    <p> 
+        Xin chào <?= $user['name']?>, 
+        <a href="<?= $baseUrl . "logout" ?>">Đăng xuất</a>
+    </p>
+
+</div>
+
+<?php endif?>
+
 <form action="" method="get">
     <input type="text" name="keyword" value="<?= $keyword ?>">
     <button type="submit">Search</button>
