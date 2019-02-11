@@ -7,11 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="<?= $baseUrl . 'save-add-product'?>" method="post" 
+    <form onsubmit="return validate()" action="<?= $baseUrl . 'save-add-product'?>" method="post" 
                     enctype="multipart/form-data">
         <div>
             <label for="">Product name</label>
             <input type="text" name="name" id="">
+            <span id="nameerr" style="color:red"></span>
         </div>
         <div>
             <label for="">Category</label>
@@ -27,7 +28,8 @@
         </div>
         <div>
             <label for="">Product price</label>
-            <input type="number" name="price" id="">
+            <input type="text" name="price" id="">
+            <span id="priceerr" style="color:red"></span>
         </div>
         <div>
             <label for="">Product star</label>
@@ -49,5 +51,48 @@
             <button type="submit">Save</button>
         </div>
     </form>
+
+
+    <script>
+        function validate(){
+            // thu thap du lieu tu form
+            var name = document.querySelector('input[name="name"]').value;
+            var price = document.querySelector('input[name="price"]').value;
+            var star = document.querySelector('input[name="star"]').value;
+            var views = document.querySelector('input[name="views"]').value;
+            var short_desc = document.querySelector('textarea[name="short_desc"]').value;
+            
+            // kiem tra du lieu
+            var err = false;
+            
+            if(name.length == 0 ){
+                document.querySelector('#nameerr').innerText = "Tên sản phẩm không được để trống";
+                
+                err = true;
+            }else if(name.length > 10){
+                document.querySelector('#nameerr').innerText = "Tên sản phẩm không nhiều hơn 10 ký tự";
+                err = true;
+            }
+
+            if(isNaN(price)){
+                document.querySelector('#priceerr').innerText = "Vui lòng nhập số";
+                err = true;
+            }else if(price < 0){
+                document.querySelector('#priceerr').innerText = "Vui lòng nhập số dương";
+                err = true;
+            }else if( price > 10000){
+                document.querySelector('#priceerr').innerText = "Giá sản phẩm không lớn hơn 10000";
+                err = true;
+            }
+
+            // neu vi pham => hien thi thong bao vi pham
+            // return false => ngan chan viec nguoi dung gui data len server
+            // neu khong vi pham
+            // return true => cho phep gui data len server
+
+
+            return !err;
+        }
+    </script>
 </body>
 </html>

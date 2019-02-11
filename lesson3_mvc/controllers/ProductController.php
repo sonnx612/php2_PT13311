@@ -5,11 +5,10 @@ require_once './helpers/AuthTrait.php';
 class ProductController
 {
     use AuthTrait;
-    
+
     public function remove(){
         $id = $_GET['id'];
         Product::delete($id);
-
         header('location: ./');
     }   
 
@@ -106,6 +105,7 @@ class ProductController
         $sqlQuery = "update " . $model->table 
                     . " set $cols "
                     . " where id = " . $model->id;
+        // var_dump($sqlQuery);die;
         // thực thi câu lệnh đc sinh ra ở trên
         Product::rawQuery($sqlQuery);
         // điều hướng về trang chủ
