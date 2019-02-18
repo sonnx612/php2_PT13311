@@ -3,9 +3,6 @@ require './vendor/autoload.php';
 
 $faker = Faker\Factory::create();
 
-
-
-
 ?>
 
 <table>
