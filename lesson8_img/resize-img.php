@@ -1,7 +1,8 @@
 <?php
 $img = getcwd(). '/uploads/' . 'phan-nguyen-slide1.jpg';
+
 list($width, $height) = getimagesize($img);
-$percent = 0.5;
+$percent = 460/$width;
 $new_width = $width * $percent;
 $new_height = $height * $percent;
 // lấy ra kích cỡ gốc của ảnh
@@ -15,7 +16,7 @@ $new_image = imagecreatetruecolor($new_width, $new_height);
 // lấy ra ảnh cũ
 $image = imagecreatefromjpeg($img);
 // resize ảnh
-imagecopyresampled($new_image, $image, 0, 0, 0, 0, 800, 600, $width, $height);
+imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
 $newImgPath = uniqid() . ".jpg";
 // lưu file ảnh vừa resize vào thư mục
 
